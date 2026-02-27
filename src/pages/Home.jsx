@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import HeroCarousel from '../components/HeroCarousel';
+import FeaturedCarousel from '../components/FeaturedCarousel';
 import ProductCard from '../components/ProductCard';
 import { products } from '../data/products';
 
@@ -10,26 +11,31 @@ const Home = ({ onAddToCart, onNavigate }) => {
     <div>
       <HeroCarousel onNavigate={onNavigate} />
 
-      {/* Featured Products */}
-      <section className="py-16 bg-gray-50">
+      {/* Featured Products - Mobile Carousel / Desktop Grid */}
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-3 sm:mb-4">
               Productos <span className="text-primary">Destacados</span>
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base px-4 sm:px-0">
               Descubre nuestra selección de productos premium diseñados para maximizar tu rendimiento
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Mobile: Carousel, Desktop: Grid */}
+          <div className="sm:hidden">
+            <FeaturedCarousel products={featuredProducts} onAddToCart={onAddToCart} />
+          </div>
+          
+          <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {featuredProducts.map(product => (
               <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Link to="/shop" className="btn-primary inline-flex items-center gap-2">
+          <div className="text-center mt-8 sm:mt-12">
+            <Link to="/shop" className="btn-primary inline-flex items-center gap-2 text-sm sm:text-base px-6 py-3">
               Ver Todos los Productos
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
