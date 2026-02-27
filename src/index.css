@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #FF6B00;
+  --secondary: #1A1A1A;
+  --gray-dark: #4A4A4A;
+}
+
+@theme {
+  --color-primary: #FF6B00;
+  --color-secondary: #1A1A1A;
+  --color-gray-dark: #4A4A4A;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFFFFF;
+  color: var(--secondary);
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-primary {
+  @apply bg-primary text-white px-6 py-3 rounded-lg font-medium transition-all hover:bg-orange-600;
+}
+
+.btn-outline {
+  @apply border-2 border-secondary text-secondary px-6 py-3 rounded-lg font-medium transition-all hover:bg-secondary hover:text-white;
+}
+
+/* Headings use Montserrat */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
